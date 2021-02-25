@@ -1,17 +1,17 @@
-import { useEffect, useState } from 'react';
-import styles from '../../styles/components/Countdown.module.css';
+import { useContext } from 'react';
+import { CountdownContext } from '../contexts/CountdownContext';
+import styles from '../styles/components/Countdown.module.css';
 
 export function Countdown() {
 
-    let countdonwTimeout: NodeJS.Timeout;
-
-    const [time, setTime] = useState(0.1 * 60); // Tempo total do contador
-    const [isActive, setIsActive] = useState(false);
-    const [hasFinished, setHasFinished] = useState(false);
-
-
-    const minutes = Math.floor(time / 60); // tempoTotal, divide por 60 e arredonda pra baixo, retornando a quantidade de minutos
-    const seconds = time % 60; // resto da divisão, retornando os segundos 
+    const {
+        minutes,
+        seconds,
+        hasFinished,
+        isActive,
+        startCountdown,
+        resetCountdown
+    } = useContext(CountdownContext);
 
     const [minuteLeft, minuteRight] = String(minutes).padStart(2, '0').split('');
     const [secondLeft, secondRight] = String(seconds).padStart(2, '0').split('');
@@ -20,26 +20,7 @@ export function Countdown() {
     //padStart --> Se não tiver duas posições, preenche a primeira com '0'
     // split retorna uim array com os caracteres da string
 
-    function startCountDown() {
-        setIsActive(true);
-    }
 
-    function resetCountDown() {
-        clearTimeout(countdonwTimeout);
-        setIsActive(false);
-        setTime(0.1 * 60);
-    }
-
-    useEffect(() => {
-        if (isActive && time > 0) {
-            countdonwTimeout = setTimeout(() => {
-                setTime(time - 1);
-            }, 1000)
-        } else if (isActive && time === 0) {
-            setHasFinished(true);
-            setIsActive(false);
-        }
-    }, [isActive, time])
     return (
 
         <div>
@@ -74,7 +55,7 @@ export function Countdown() {
                                     <button
                                         type='button'
                                         className={`${styles.countdownButton} ${styles.countdownButtonActive}`}
-                                        onClick={resetCountDown}
+                                        onClick={resetCountdown}
                                     >
                                         Abandonar
                                     </button>
@@ -83,7 +64,7 @@ export function Countdown() {
                                         <button
                                             type='button'
                                             className={styles.countdownButton}
-                                            onClick={startCountDown}
+                                            onClick={startCountdown}
                                         >
                                             Iniciar
                                         </button>
