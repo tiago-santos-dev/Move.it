@@ -3,9 +3,7 @@ import '../styles/globals.css'
 
 function MyApp({ Component, pageProps }) {
   return (
-    <ChallengeProvider>
-      <Component {...pageProps} />
-    </ChallengeProvider>
+    <Component {...pageProps} />
   );
 }
 
