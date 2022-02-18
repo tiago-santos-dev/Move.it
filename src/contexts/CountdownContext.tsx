@@ -18,7 +18,7 @@ export const CountdownContext = createContext({} as CountdownContextData);
 
 let countdonwTimeout: NodeJS.Timeout;
 
-export function CountdownProvider({ children }: CountdownProviderProps) {
+export function CountdownProvider ({ children }: CountdownProviderProps) {
 
     const { startNewChallenge } = useContext(ChallengeContext);
 
@@ -29,15 +29,15 @@ export function CountdownProvider({ children }: CountdownProviderProps) {
     const minutes = Math.floor(time / 60); // tempoTotal, divide por 60 e arredonda pra baixo, retornando a quantidade de minutos
     const seconds = time % 60; // resto da divisão, retornando os segundos 
 
-    function startCountdown() {
+    function startCountdown () {
         setIsActive(true);
     }
 
-    function resetCountdown() {
+    function resetCountdown () {
         clearTimeout(countdonwTimeout);
         setIsActive(false);
         setHasFinished(false);
-        setTime(0.1 * 60);
+        setTime(25 * 60);
     }
 
     useEffect(() => {
