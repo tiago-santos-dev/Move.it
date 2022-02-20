@@ -3,6 +3,16 @@
 
 MoveIt is a Front-End project created during NLW#4, Rocketseat event. This project consists of suggesting exercises, in periods of time, based on the pomodoro technique, providing a better quality of life for those who work for a long time sitting in front of screens.
 
+## Features
+
+- Progress data saved in cookies
+- Level change animation
+- Progress bar
+
+
+## Demo
+
+https://move-it-eosin.vercel.app/
 ## Tech Stack
 
 Next.js and Typescript
