@@ -1,19 +1,46 @@
 
-## Getting Started
+# Move It
 
-First, run the development server:
+MoveIt is a Front-End project created during NLW#4, Rocketseat event. This project consists of suggesting exercises, in periods of time, based on the pomodoro technique, providing a better quality of life for those who work for a long time sitting in front of screens.
+
+## Tech Stack
+
+Next.js and Typescript
+
+
+
+## Run Locally
+
+Clone the project
 
 ```bash
-npm run dev
-# or
-yarn dev
+  git clone https://github.com/tiago-santos-dev/Move.it.git
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Go to the project directory
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
-## Deploy on Vercel
+```bash
+  cd Move.it
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Install dependencies
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+```bash
+  npm install
+  # or
+  yarn install
+```
+
+Start the server
+
+```bash
+  npm run dev
+  # or
+  yarn dev
+```
+
+
+## License
+
+[MIT](https://choosealicense.com/licenses/mit/)
+
